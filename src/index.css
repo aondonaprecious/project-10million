@@ -1,0 +1,35 @@
+/** @format */
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.animate-slide-down {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideDown 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* background-dots.css */
+.bg-dots {
+  background-image: radial-gradient(circle, rgba(255,215,0,0.6) 1.5px, transparent 1.5px),
+                    radial-gradient(circle, rgba(10,42,102,0.6) 1.5px, transparent 1.5px);
+  background-size: 35px 35px, 55px 55px; 
+  background-position: 0 0, 18px 18px;   
+  opacity: 0.45; /* softer but still visible */
+}
+
