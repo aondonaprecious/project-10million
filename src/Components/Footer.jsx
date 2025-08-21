@@ -5,36 +5,36 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#392467] text-[#ffd1e3] py-12">
+    <footer className="bg-white text-[#01257D] py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
+          {/* Project Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-white">
+            <h3 className="text-2xl font-bold mb-4 text-[#01257D]">
               Project 10 Million
             </h3>
             <p className="mb-4">
               Covering church building, office renovation & ICPLC logistics
             </p>
-            <p className="italic">
+            <p className="italic text-[#01257D]/80">
               "For by thee I have run through a troop; and by my God have I
               leaped over a wall."
             </p>
-            <p className="font-bold mt-2">Psalm 18:29 (KJV)</p>
+            <p className="font-bold mt-2 text-[#00FFFF]">Psalm 18:29 (KJV)</p>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h4 className="text-xl font-bold mb-4 text-white">Quick Links</h4>
+            <h4 className="text-xl font-bold mb-4 text-[#01257D]">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
-              {[
-                "Home",
-                "About",
-                "Projects",
-                "Progress",
-                "Donate",
-                "Contact",
-              ].map((item, i) => (
+              {["Home", "About", "Donate", "Contact"].map((item, i) => (
                 <li key={i}>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-[#00FFFF] transition-colors"
+                  >
                     {item}
                   </a>
                 </li>
@@ -42,31 +42,35 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Organization */}
           <div>
-            <h4 className="text-xl font-bold mb-4 text-white">Organization</h4>
-            <ul className="space-y-2">
-              <li>BELIEVERS LOVEWORLD JOSTUM</li>
-              <li>Joseph Sarwuan Tarkaa University</li>
+            <h4 className="text-xl font-bold mb-4 text-[#01257D]">
+              Organization
+            </h4>
+            <ul className="space-y-2 text-[#01257D]/90">
               <li>Church Building Committee</li>
               <li>Office Renovation Team</li>
               <li>ICPLC Logistics</li>
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4 className="text-xl font-bold mb-4 text-white">Contact Us</h4>
+            <h4 className="text-xl font-bold mb-4 text-[#01257D]">
+              Contact Us
+            </h4>
             <p className="mb-2">123 Church Street, City</p>
             <p className="mb-2">Phone: (123) 456-7890</p>
-            <p className="mb-4">Email: info@project10million.org</p>
+            <p className="mb-4">Email:info@project10million.org</p>
             <div className="flex space-x-4">
-              {[1, 2, 3, 4].map((i) => (
+              {[].map((i) => (
                 <motion.div
                   key={i}
-                  className="w-10 h-10 rounded-full bg-[#5d3587] flex items-center justify-center cursor-pointer"
+                  className="w-10 h-10 rounded-full bg-[#01257D] text-white flex items-center justify-center cursor-pointer"
                   whileHover={{
                     scale: 1.1,
-                    backgroundColor: "#ffd1e3",
-                    color: "#392467",
+                    backgroundColor: "#00FFFF",
+                    color: "#01257D",
                   }}
                 >
                   {i}
@@ -76,12 +80,13 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-[#5d3587] text-center">
-          <p>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-[#01257D]/30 text-center">
+          <p className="text-[#01257D]">
             &copy; {new Date().getFullYear()} Project 10 Million. All Rights
             Reserved.
           </p>
-          <p className="mt-2 text-[#ffd1e3]">
+          <p className="mt-2 text-[#01257D] font-medium">
             Organized by BELIEVERS LOVEWORLD JOSTUM - Joseph Sarwuan Tarkaa
             University
           </p>

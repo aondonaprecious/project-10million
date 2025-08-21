@@ -40,10 +40,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              A 21<sup>st</sup>-century logistics company delivering modern
-              supply chain solutions and last-mile delivery capabilities in the
-              retail, hi-tech, and logistics sectors. You can rely on us for all
-              your delivery and transport requirements.
+             Project - 10 Million<sup>st</sup> we are building God a house, spreading the gospel on our campus. one block per time. 
             </motion.p>
 
             <motion.div
