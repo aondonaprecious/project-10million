@@ -13,7 +13,10 @@ const Hero = () => {
       {/* Background church image */}
       <div
         className="absolute inset-0 bg-center bg-cover z-[-1] opacity-90"
-        style={{ backgroundImage: `url("${Image}")` }}
+        style={{
+          backgroundImage:
+            "url(Image)",
+        }}
       />
 
       <div className="container mx-auto px-6 lg:px-12 py-20 relative z-10">
@@ -40,7 +43,8 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-             Project - 10 Million<sup>st</sup> we are building God a house, spreading the gospel on our campus. one block per time. 
+              Project - 10 Million we are building God a house, spreading the
+              gospel on our campus. one block per time.
             </motion.p>
 
             <motion.div

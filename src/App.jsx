@@ -4,14 +4,18 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Loader from "./Components/Loader";
-import Header from "./Components/Header";
+import Header from "./Components/Navigation";
 import Hero from "./Components/Hero";
-import Home from "./Components/Home";
-import About from "./Components/About";
+import Home from "./Components/Projects";
+// import Partnership from "./Components/Partnership";
 import Contacts from "./Components/Contacts";
 import Footer from "./Components/Footer";
-import OrganizationSection from "./Components/OrganizationSection";
+// import OrganizationSection from "./Components/";
+import About from './Components/About';
 import './App.css';
+import Gallery from "./Components/Gallery";
+import Projects from "./Components/Projects";
+import Partnership from "./Components/Partnership";
 
 
 function App() {
@@ -40,9 +44,10 @@ function App() {
         >
           <Header />
           <Hero />
-          <OrganizationSection />
-          <Home />
           <About />
+          <Gallery />
+          <Projects />
+          <Partnership />
           <Contacts />
           <Footer />
         </motion.div>
