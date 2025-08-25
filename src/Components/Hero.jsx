@@ -2,22 +2,42 @@
 
 // src/components/Hero.jsx
 import { motion } from "framer-motion";
-import Image from "../assets/image.png"; // import the downloaded image
+import { useState, useEffect } from "react";
+import Image1 from "../assets/church-image.jpg"; // import your first image
+import Image2 from "../assets/church.jpg"; // import your second image
+import Image3 from "../assets/churchim.jpg"; // import your third image
 
 const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [Image1, Image2, Image3];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 10000); // Change image every 10 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <section className="relative min-h-screen flex items-center bg-[#01257D] overflow-hidden">
       {/* Deep navy overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#01257D]/90 to-[#001845] z-0"></div>
 
-      {/* Background church image */}
-      <div
-        className="absolute inset-0 bg-center bg-cover z-[-1] opacity-90"
-        style={{
-          backgroundImage:
-            "url(Image)",
-        }}
-      />
+      {/* Background image slider */}
+      <div className="absolute inset-0 z-[-1]">
+        {images.map((Images, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 bg-center bg-cover transition-opacity duration-1000 ${
+              index === currentImage ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url(${Images})`,
+            }}
+          />
+        ))}
+      </div>
 
       <div className="container mx-auto px-6 lg:px-12 py-20 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">

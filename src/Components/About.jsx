@@ -49,7 +49,7 @@ const About = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#01257D] mb-4">
-              JOSTUM Believers Loveworld
+              Believers Loveworld JOSTUM
             </h2>
 
             <div className="w-20 h-1 bg-[#D4AF37] mb-6 rounded-full" />
@@ -59,7 +59,7 @@ const About = () => {
             </h3>
 
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              JOSTUM Believers Loveworld is a vibrant campus ministry of Christ
+              Believers Loveworld JOSTUM is a vibrant campus ministry of Christ
               Embassy dedicated to raising leaders, shaping destinies, and
               influencing the campus community with the message of God's love
               and grace. We are committed to the development of spirit, soul,

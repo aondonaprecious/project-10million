@@ -23,7 +23,7 @@ const Partnership = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              Become A Partner
+              Become A Partner With Us
             </motion.h2>
 
             {/* Accent line */}
@@ -44,8 +44,8 @@ const Partnership = () => {
               transition={{ delay: 0.6 }}
             >
               Join us in our mission to build God a house, renovate our
-              facilities, and sponsor students for the ICPLC program. Your
-              partnership makes a lasting impact.
+              facilities, and sponsor students for the ICPLC with Pastor Chris at Loveworld City ASEESE, Lagos state program.
+              Your partnership makes a lasting impact.
             </motion.p>
 
             {/* Account Details */}

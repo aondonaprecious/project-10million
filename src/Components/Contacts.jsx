@@ -6,27 +6,27 @@ import { motion } from "framer-motion";
 const Contacts = () => {
   const features = [
     {
-      title: "Community Impact",
+      title: "Land Purchase ",
       description: "Creating spaces that serve and uplift our community",
     },
     {
-      title: "Sustainable Design",
+      title: "Building Materials acquisition ",
       description: "Environmentally conscious building practices",
     },
     {
-      title: "Accessible Spaces",
+      title: "Building commencement",
       description: "Facilities open and welcoming to everyone",
     },
     {
-      title: "Technology Integration",
+      title: "Church Equipment Purchase ",
       description: "Modern tech for worship and outreach",
     },
     {
-      title: "Multi-Purpose Areas",
+      title: "Office renovation ",
       description: "Flexible spaces for various community needs",
     },
     {
-      title: "Prayer & Meditation",
+      title: "ICPLC Mobilisation",
       description: "Dedicated spaces for spiritual reflection",
     },
   ];

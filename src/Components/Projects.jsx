@@ -206,10 +206,11 @@ const ChurchBuilding = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              Our fellowship has been experiencing significant venue issues,
-              moving between temporary locations that limit our growth and
-              community impact. We need a permanent home to serve our
-              congregation effectively.
+              Due to the ever increasing growth we have experienced as a church
+              and also significant venue challenges, moving between temporary
+              locations that limit our growth and community impact, We seek a
+              permanent home to serve our congregation effectively and establish
+              the will of God!
             </motion.p>
 
             <motion.h2
@@ -251,10 +252,9 @@ const ChurchBuilding = () => {
             <ul className="text-[#00FFFF] list-disc pl-5 space-y-2">
               <li>500-seat main sanctuary</li>
               <li>Multi-purpose fellowship hall</li>
-              <li>8 Sunday school classrooms</li>
               <li>Pastoral offices and meeting rooms</li>
               <li>Children's ministry area</li>
-              <li>Parking for 150 vehicles</li>
+              <li>Parking for 50 vehicles</li>
             </ul>
           </motion.div>
         </div>
@@ -266,12 +266,13 @@ const ChurchBuilding = () => {
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           <h2 className="text-2xl font-bold text-[#00FFFF] mb-4">
-            Help Us Build God's House
+            Join Us to Build God a House
           </h2>
           <p className="text-white mb-6">
-            We're seeking partners to help acquire the land and construct our
-            permanent church home. Your support will make a lasting impact on
-            our community.
+            Your Partnership can speak volumes even as you give
+            to help us acquire the church land and construct a permanent church
+            home. Your support will make a lasting impact in Believers Loveworld
+            campus ministry JOSTUM and beyond
           </p>
           <button className="bg-[#00FFFF] text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-white transition-colors">
             Support Church Building Project
@@ -300,7 +301,7 @@ const OfficeRenovation = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Office Renovation Project
+          Office Renovation and Church Equipment Purchase
         </motion.h1>
 
         <motion.div
@@ -313,11 +314,11 @@ const OfficeRenovation = () => {
             Fire Outbreak Incident
           </h2>
           <p className="text-[#00FFFF]">
-            On March 15, 2023, our ministry office suffered a devastating
+            On July 17, 2025, our Church central office suffered a devastating
             electrical fire that destroyed much of our equipment and damaged the
-            interior structure. While no one was injured, we lost computers,
-            furniture, ministry materials, and our entire network
-            infrastructure.
+            interior structure. While no one was injured to the glory of God,
+            most of our church equipments, furniture, ministry materials and
+            properties were lost to the fire.
           </p>
         </motion.div>
 
@@ -332,7 +333,7 @@ const OfficeRenovation = () => {
           </h2>
           <VideoPlayer />
           <p className="text-center text-[#00FFFF] mt-2">
-            Video footage of fire damage and renovation plans
+            Video footage of fire damage
           </p>
         </motion.div>
 
@@ -344,17 +345,16 @@ const OfficeRenovation = () => {
         >
           <div>
             <h3 className="text-xl font-bold text-white mb-4">
-              Burnt Equipment Needs Replacement
+              List of Items lost to the fire
             </h3>
             <ul className="text-[#00FFFF] list-disc pl-5 space-y-2">
-              <li>6 Desktop Computers</li>
-              <li>3 Laptops</li>
-              <li>Network Server & Equipment</li>
-              <li>Printers and Scanners</li>
-              <li>Office Furniture (desks, chairs)</li>
-              <li>Filing Cabinets and Storage</li>
-              <li>Air Conditioning Units</li>
-              <li>Kitchen Appliances</li>
+              <li>Drumset</li>
+              <li>Microphones</li>
+              <li>Office partition structure</li>
+              <li>Amplifier</li>
+              <li>All technical cords and wires</li>
+              <li>Office wiring structure</li>
+              <li>Distribution boxes</li>
             </ul>
           </div>
 
@@ -363,13 +363,15 @@ const OfficeRenovation = () => {
               Renovation Requirements
             </h3>
             <ul className="text-[#00FFFF] list-disc pl-5 space-y-2">
-              <li>Electrical System Overhaul</li>
-              <li>Drywall Replacement</li>
-              <li>Flooring Repair</li>
-              <li>Painting Entire Office</li>
-              <li>New Lighting Fixtures</li>
+              <li>Painting</li>
+              <li>Rewiring of entire structure</li>
+              <li className="lowercase">CREATION OF OFFICE PARTITION</li>
+              <li>PURCHASE OF NEW CHURCH EQUIPMENTS</li>
+              <li>Flooring repairs</li>
               <li>Smoke Detection System</li>
               <li>Fire Extinguishers</li>
+              <li>Dry Wall Replacement</li>
+              <li>NEW LIGHTING FIXTURES</li>
             </ul>
           </div>
         </motion.div>
@@ -384,14 +386,15 @@ const OfficeRenovation = () => {
             Become a Restoration Partner
           </h2>
           <p className="text-white mb-6">
-            Your support will help us restore our ministry operations and
-            continue serving our community effectively.
+            Your Partnership will help us restore our ministry operations and
+            complete the full preaching of the gospel in this year of
+            completeness
           </p>
           <button className="bg-[#00FFFF] text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-white transition-colors mr-4">
             Donate Equipment
           </button>
           <button className="bg-white text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-[#00FFFF] transition-colors">
-            Financial Support
+            Partner with us Today
           </button>
         </motion.div>
       </div>
@@ -473,7 +476,7 @@ const ICPLC = () => {
       back: {
         testimonial:
           "ICPLC reignited my passion for ministry and gave me fresh vision for serving my community.",
-        author: "Rebecca T., Uganda",
+        author: "Sister Agatha Ortyom",
       },
     },
   ];
@@ -503,7 +506,7 @@ const ICPLC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-           International Campus Pastors’ and Leaders’ Conference
+          International Campus Pastors’ and Leaders’ Conference
         </motion.h2>
 
         <motion.div
@@ -517,7 +520,8 @@ const ICPLC = () => {
             ICPLC (International Campus Pastors’ and Leaders’ Conference) is a
             global gathering of passionate, purpose-driven youth leaders,
             student ministers, and campus fellowship pastors in the Believers’
-            Loveworld Nation.
+            Loveworld Nation. with Pastor Chris Oyakhilome at ASEESE believers
+            Loveworld
           </p>
         </motion.div>
 
@@ -556,33 +560,35 @@ const ICPLC = () => {
             Sponsor a Student for ICPLC 2025
           </h2>
           <p className="text-white mb-6">
-            Many aspiring church leaders from developing nations cannot afford
-            conference expenses. Your sponsorship of $500 covers registration,
-            materials, accommodation, and meals for one student.
+            Many young students from our campus desire so greatly to be part of
+            this live transforming conference with Pastor Chris but have some
+            constraints. Your sponsorship of at least $55 will cover for the
+            registration, material, accommodation, meals and transportation of
+            at least one student.
           </p>
 
           <div className="grid md:grid-cols-3 gap-4 mb-6">
             <div className="p-4 bg-white/5 rounded-lg">
               <div className="text-3xl font-bold text-[#00FFFF]">1</div>
-              <div className="text-white text-sm">Student Sponsor</div>
-              <div className="text-[#00FFFF] font-bold">$500</div>
+              <div className="text-white text-sm"> 1 delegate </div>
+              <div className="text-[#00FFFF] font-bold">$55</div>
             </div>
 
             <div className="p-4 bg-white/5 rounded-lg">
               <div className="text-3xl font-bold text-[#00FFFF]">5</div>
-              <div className="text-white text-sm">Students Sponsor</div>
-              <div className="text-[#00FFFF] font-bold">$2,500</div>
+              <div className="text-white text-sm">5 delegates</div>
+              <div className="text-[#00FFFF] font-bold">$275</div>
             </div>
 
             <div className="p-4 bg-white/5 rounded-lg">
               <div className="text-3xl font-bold text-[#00FFFF]">10</div>
-              <div className="text-white text-sm">Students Sponsor</div>
-              <div className="text-[#00FFFF] font-bold">$5,000</div>
+              <div className="text-white text-sm">20 delegates</div>
+              <div className="text-[#00FFFF] font-bold">$1,1000</div>
             </div>
           </div>
 
           <button className="bg-[#00FFFF] text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-white transition-colors">
-            Sponsor a Student Now
+            Sponsor a delegate now
           </button>
         </motion.div>
       </div>

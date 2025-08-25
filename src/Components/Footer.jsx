@@ -81,13 +81,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#01257D]/30 text-center">
+        <div className="pt-5 border-t border-[#01257D]/30 text-center">
           <p className="text-[#01257D]">
             &copy; {new Date().getFullYear()} Project 10 Million. All Rights
             Reserved.
           </p>
-          <p className="mt-2 text-[#01257D] font-medium">
-            Organized by BELIEVERS LOVEWORLD JOSTUM - Joseph Sarwuan Tarkaa
+          <p className=" text-[#01257D] font-medium">
+             BELIEVERS LOVEWORLD JOSTUM - Joseph Sarwuan Tarkaa
             University
           </p>
         </div>

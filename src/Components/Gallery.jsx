@@ -154,32 +154,21 @@ const Gallery = () => {
     }),
   };
 
-  // Thumbnail animation
-  const thumbnailVariants = {
-    active: {
-      scale: 1.1,
-      borderColor: "#00FFFF",
-      transition: { duration: 0.3 },
-    },
-    inactive: {
-      scale: 1,
-      borderColor: "transparent",
-      transition: { duration: 0.3 },
-    },
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#01257D] to-[#0050a3] text-white py-8 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-[#01257D] to-[#0050a3] text-white py-8 px-4 flex flex-col items-center justify-center">
+      <div className="w-full max-w-4xl mx-auto">
+        {" "}
+        {/* Reduced max-width from 6xl to 4xl */}
         <h1 className="text-4xl font-bold text-center mb-2 text-[#00FFFF]">
           Image Gallery
         </h1>
         <p className="text-center text-lg text-gray-300 mb-8">
           Beautiful moments captured in JOSTUM BLW
         </p>
-
-        {/* Main Gallery */}
-        <div className="relative h-96 md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-2xl mb-8 border-2 border-[#00FFFF]">
+        {/* Main Gallery - Reduced size and centered */}
+        <div className="relative h-80 md:h-96 lg:h-[450px] rounded-xl overflow-hidden shadow-2xl mb-8 border-2 border-[#00FFFF] mx-auto w-full max-w-3xl">
+          {" "}
+          {/* Reduced height and added max-width */}
           <AnimatePresence custom={direction} initial={false}>
             <motion.div
               key={currentIndex}
@@ -188,32 +177,37 @@ const Gallery = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              className="absolute w-full h-full"
+              className="absolute w-full h-full flex items-center justify-center" /* Added flex centering */
             >
               <img
                 src={images[currentIndex].src}
                 alt={images[currentIndex].title}
-                className="w-[80%] h-full object-cover"
+                className="max-h-full max-w-full object-contain" /* Changed to contain and added max constraints */
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
-                <h2 className="text-2xl font-bold">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                {" "}
+                {/* Reduced padding */}
+                <h2 className="text-xl font-bold">
+                  {" "}
+                  {/* Reduced text size */}
                   {images[currentIndex].title}
                 </h2>
-                <p className="text-gray-300">
+                <p className="text-gray-300 text-sm">
+                  {" "}
+                  {/* Reduced text size */}
                   {images[currentIndex].description}
                 </p>
               </div>
             </motion.div>
           </AnimatePresence>
-
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#01257D] hover:bg-[#011c5f] border-2 border-[#00FFFF] rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 shadow-lg"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[#01257D] hover:bg-[#011c5f] border-2 border-[#00FFFF] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 shadow-lg" /* Reduced size */
             aria-label="Previous image"
           >
             <svg
-              className="w-6 h-6 text-[#00FFFF]"
+              className="w-5 h-5 text-[#00FFFF]" /* Reduced icon size */
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -228,11 +222,11 @@ const Gallery = () => {
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#01257D] hover:bg-[#011c5f] border-2 border-[#00FFFF] rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 shadow-lg"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#01257D] hover:bg-[#011c5f] border-2 border-[#00FFFF] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 shadow-lg" /* Reduced size */
             aria-label="Next image"
           >
             <svg
-              className="w-6 h-6 text-[#00FFFF]"
+              className="w-5 h-5 text-[#00FFFF]" /* Reduced icon size */
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -245,16 +239,15 @@ const Gallery = () => {
               />
             </svg>
           </button>
-
           {/* Autoplay Toggle */}
           <button
             onClick={() => setAutoplay(!autoplay)}
-            className="absolute top-4 right-4 bg-[#01257D] hover:bg-[#011c5f] border-2 border-[#00FFFF] rounded-full p-2 transition-all duration-300 shadow-lg"
+            className="absolute top-2 right-2 bg-[#01257D] hover:bg-[#011c5f] border-2 border-[#00FFFF] rounded-full p-1 transition-all duration-300 shadow-lg" /* Reduced padding */
             aria-label={autoplay ? "Pause slideshow" : "Play slideshow"}
           >
             {autoplay ? (
               <svg
-                className="w-5 h-5 text-[#00FFFF]"
+                className="w-4 h-4 text-[#00FFFF]" /* Reduced icon size */
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -268,7 +261,7 @@ const Gallery = () => {
               </svg>
             ) : (
               <svg
-                className="w-5 h-5 text-[#00FFFF]"
+                className="w-4 h-4 text-[#00FFFF]" /* Reduced icon size */
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -288,14 +281,14 @@ const Gallery = () => {
               </svg>
             )}
           </button>
-
           {/* Slide Indicator */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full ${
+                className={`w-2 h-2 rounded-full ${
+                  /* Reduced size */
                   currentIndex === index ? "bg-[#00FFFF]" : "bg-gray-500"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -303,7 +296,6 @@ const Gallery = () => {
             ))}
           </div>
         </div>
-        
       </div>
     </div>
   );
