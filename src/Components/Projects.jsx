@@ -2,7 +2,19 @@
 import { motion } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState, useRef } from "react";
-import firevidoe from '../assets/Fire vidoe.mp4';
+import firevidoe from "../assets/Fire vidoe.mp4";
+
+// Import local images
+import flyer1 from "../assets/icplc 2.jpg";
+import flyer2 from "../assets/icplc banner.jpg";
+import flyer3 from "../assets/icplc 2.jpg";
+import agatha from "../assets/agatha 2.jpg";
+import marvelous from "../assets/agatha.jpg";
+import joy from "../assets/joy.jpg";
+import agathaa from '../assets/37a24f6a-e6c1-48c0-a963-ca4af504b927.jpg'
+import precious from "../assets/Loving Heart of LoveWorld Arena.png";
+import buildingFront from "../assets/Loving Heart of LoveWorld Arena.png";
+import buildingInterior from "../assets/Loving Heart of LoveWorld Arena.png";
 
 // Main Projects component with routing
 const Projects = () => {
@@ -169,8 +181,24 @@ const VideoPlayer = () => {
   );
 };
 
-// Church Building Component
+// Church Building Component with Image Toggle
 const ChurchBuilding = () => {
+  const [currentView, setCurrentView] = useState(0);
+  const buildingViews = [
+    {
+      name: "Front View",
+      image: buildingFront,
+    },
+    {
+      name: "Interior View",
+      image: buildingInterior,
+    },
+  ];
+
+  const nextView = () => {
+    setCurrentView((prev) => (prev + 1) % buildingViews.length);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#01257D] to-[#023190] py-12 px-4">
       <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-sm rounded-xl border border-[#00FFFF] p-8">
@@ -241,14 +269,27 @@ const ChurchBuilding = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <h3 className="text-xl font-bold text-white mb-4">
-              Proposed Building Plan
-            </h3>
-            <div className="aspect-video bg-[#00FFFF]/10 flex items-center justify-center text-[#00FFFF] mb-4">
-              <span className="text-lg">
-                Architectural Rendering of Church Building
-              </span>
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold text-white">
+                Proposed Building Plan
+              </h3>
+              <button
+                onClick={nextView}
+                className="text-sm bg-[#00FFFF] text-[#01257D] px-3 py-1 rounded hover:bg-white transition-colors"
+              >
+                Switch View
+              </button>
             </div>
+            <div className="aspect-video bg-[#00FFFF]/10 mb-4 overflow-hidden rounded-lg">
+              <img
+                src={buildingViews[currentView].image}
+                alt={buildingViews[currentView].name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <p className="text-[#00FFFF] text-center mb-2">
+              {buildingViews[currentView].name}
+            </p>
             <ul className="text-[#00FFFF] list-disc pl-5 space-y-2">
               <li>500-seat main sanctuary</li>
               <li>Multi-purpose fellowship hall</li>
@@ -269,10 +310,10 @@ const ChurchBuilding = () => {
             Join Us to Build God a House
           </h2>
           <p className="text-white mb-6">
-            Your Partnership can speak volumes even as you give
-            to help us acquire the church land and construct a permanent church
-            home. Your support will make a lasting impact in Believers Loveworld
-            campus ministry JOSTUM and beyond
+            Your Partnership can speak volumes even as you give to help us
+            acquire the church land and construct a permanent church home. Your
+            support will make a lasting impact in Believers Loveworld campus
+            ministry JOSTUM and beyond
           </p>
           <button className="bg-[#00FFFF] text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-white transition-colors">
             Support Church Building Project
@@ -350,7 +391,7 @@ const OfficeRenovation = () => {
             <ul className="text-[#00FFFF] list-disc pl-5 space-y-2">
               <li>Drumset</li>
               <li>Microphones</li>
-              <li>Office partition structure</li>
+              <li>Office partition structure</li>
               <li>Amplifier</li>
               <li>All technical cords and wires</li>
               <li>Office wiring structure</li>
@@ -365,13 +406,13 @@ const OfficeRenovation = () => {
             <ul className="text-[#00FFFF] list-disc pl-5 space-y-2">
               <li>Painting</li>
               <li>Rewiring of entire structure</li>
-              <li className="lowercase">CREATION OF OFFICE PARTITION</li>
-              <li>PURCHASE OF NEW CHURCH EQUIPMENTS</li>
+              <li>Creation of office partition</li>
+              <li>Purchase of new church equipments</li>
               <li>Flooring repairs</li>
               <li>Smoke Detection System</li>
               <li>Fire Extinguishers</li>
               <li>Dry Wall Replacement</li>
-              <li>NEW LIGHTING FIXTURES</li>
+              <li>New lighting fixtures</li>
             </ul>
           </div>
         </motion.div>
@@ -393,93 +434,105 @@ const OfficeRenovation = () => {
           <button className="bg-[#00FFFF] text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-white transition-colors mr-4">
             Donate Equipment
           </button>
-          <button className="bg-white text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-[#00FFFF] transition-colors">
-            Partner with us Today
-          </button>
+          <a href="#partnership">
+            <button className="bg-white text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-[#00FFFF] transition-colors">
+              Partner with us Today
+            </button>
+          </a>
         </motion.div>
       </div>
     </div>
   );
 };
 
-// Flip Card Component for Testimonials
-const FlipCard = ({ front, back, delay }) => {
+// Testimony Card Component with Glitter Effect
+const TestimonyCard = ({ name, image, testimony, delay }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [showGlitter, setShowGlitter] = useState(false);
+
+  const handleHover = () => {
+    setIsHovered(true);
+    setShowGlitter(true);
+    setTimeout(() => setShowGlitter(false), 1000);
+  };
+
+  const handleLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
     <motion.div
-      className="flip-card h-64 w-full cursor-pointer"
-      initial={{ opacity: 0, rotateY: 90 }}
-      animate={{ opacity: 1, rotateY: 0 }}
-      transition={{ duration: 0.6, delay }}
-      whileHover={{ rotateY: 180 }}
+      className="relative overflow-hidden rounded-xl border border-[#00FFFF] bg-white/5 backdrop-blur-sm p-4 mb-6"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay }}
+      whileHover={{ rotate: 12 }}
+      onHoverStart={handleHover}
+      onHoverEnd={handleLeave}
+      onTap={handleHover}
     >
-      <div className="flip-card-inner relative w-full h-full">
-        <div className="flip-card-front absolute w-full h-full bg-[#01257D] p-4 rounded-lg border border-[#00FFFF] flex flex-col items-center justify-center backface-hidden">
-          <h4 className="text-lg font-bold text-[#00FFFF] mb-2 text-center">
-            {front.title}
-          </h4>
-          <p className="text-white text-sm text-center">{front.content}</p>
+      {/* Glitter Effect */}
+      {showGlitter && (
+        <div className="glitter-overlay">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="glitter-particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 0.5}s`,
+                width: `${Math.random() * 10 + 5}px`,
+                height: `${Math.random() * 10 + 5}px`,
+              }}
+            />
+          ))}
         </div>
-        <div className="flip-card-back absolute w-full h-full bg-[#00FFFF] p-4 rounded-lg border border-[#01257D] flex flex-col items-center justify-center backface-hidden rotate-y-180">
-          <p className="text-[#01257D] text-sm text-center italic">
-            "{back.testimonial}"
-          </p>
-          <p className="text-[#01257D] font-bold mt-4">- {back.author}</p>
+      )}
+
+      <div className="flex flex-col md:flex-row items-center">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#00FFFF] flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+          <img src={image} alt={name} className="w-full h-full object-cover" />
+        </div>
+        <div className="flex-1 text-center md:text-left">
+          <h4 className="text-lg font-bold text-[#00FFFF] mb-2">{name}</h4>
+          <p className="text-white italic">"{testimony}"</p>
         </div>
       </div>
     </motion.div>
   );
 };
 
-// ICPLC Component
+// ICPLC Component with Enhanced Features
 const ICPLC = () => {
   const testimonials = [
     {
-      front: {
-        title: "Learning Experience",
-        content:
-          "Comprehensive church planting methodologies and leadership strategies",
-      },
-      back: {
-        testimonial:
-          "ICPLC transformed my understanding of cross-cultural ministry. The hands-on workshops were invaluable.",
-        author: "Pastor James, Nigeria",
-      },
+      name: "Sister Joy Atile",
+      image: joy,
+      testimony:
+        "ICPLC transformed my understanding of cross-cultural ministry. The hands-on workshops were invaluable.",
     },
     {
-      front: {
-        title: "Global Networking",
-        content: "Connect with leaders from diverse backgrounds and cultures",
-      },
-      back: {
-        testimonial:
-          "The relationships I built at ICPLC have become my support network in ministry. Forever grateful!",
-        author: "Sarah M., Kenya",
-      },
+      name: "Sister Agatha Adima",
+      image: agathaa,
+      testimony:
+        "The relationships I built at ICPLC have become my support network in ministry. Forever grateful!",
     },
     {
-      front: {
-        title: "Practical Application",
-        content:
-          "Real-world ministry application and problem-solving techniques",
-      },
-      back: {
-        testimonial:
-          "The practical skills I gained at ICPLC helped me launch a thriving church in my community.",
-        author: "Emmanuel, Ghana",
-      },
+      name: "Brother Marvelous",
+      image: precious,
+      testimony:
+        "The practical skills I gained at ICPLC helped me launch a thriving church in my community.",
     },
     {
-      front: {
-        title: "Spiritual Growth",
-        content: "Deepen your faith and calling through worship and teaching",
-      },
-      back: {
-        testimonial:
-          "ICPLC reignited my passion for ministry and gave me fresh vision for serving my community.",
-        author: "Sister Agatha Ortyom",
-      },
+      name: "Sister Agatha Ortyom",
+      image: agatha,
+      testimony:
+        "Attending the ICPLC, I expect to return refreshed and reenergized, with a renewed mind ready for kingdom exploits. I anticipate receiving increased grace for expansion in cell ministry and the ability to profoundly impact others' lives. Furthermore, I look forward to gaining end-time territorial domination counsel from our dear man of God and receiving a life-changing word that will transform my finances forever.",
     },
   ];
+
+  const flyers = [flyer1, flyer2, flyer3];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#01257D] to-[#023190] py-12 px-4">
@@ -506,7 +559,7 @@ const ICPLC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          International Campus Pastors’ and Leaders’ Conference
+          International Campus Pastors' and Leaders' Conference
         </motion.h2>
 
         <motion.div
@@ -517,19 +570,53 @@ const ICPLC = () => {
         >
           <h3 className="text-xl font-bold text-white mb-4">What is ICPLC?</h3>
           <p className="text-[#00FFFF]">
-            ICPLC (International Campus Pastors’ and Leaders’ Conference) is a
+            ICPLC (International Campus Pastors' and Leaders' Conference) is a
             global gathering of passionate, purpose-driven youth leaders,
-            student ministers, and campus fellowship pastors in the Believers’
+            student ministers, and campus fellowship pastors in the Believers'
             Loveworld Nation. with Pastor Chris Oyakhilome at ASEESE believers
             Loveworld
           </p>
+        </motion.div>
+
+        {/* E-Cards and Flyers Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h3 className="text-xl font-bold text-white mb-4 text-center">
+            ICPLC Program Materials
+          </h3>
+          <p className="text-[#00FFFF] text-center mb-6">
+            Check out our latest flyers and e-cards for the ICPLC program
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {flyers.map((flyer, index) => (
+              <motion.div
+                key={index}
+                className="rounded-lg overflow-hidden border border-[#00FFFF]"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                whileHover={{ y: -5 }}
+              >
+                <img
+                  src={flyer}
+                  alt={`ICPLC Flyer ${index + 1}`}
+                  className="w-full h-auto"
+                />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
           className="mb-8"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
           <h3 className="text-xl font-bold text-white mb-4 text-center">
             Student Testimonials
@@ -538,12 +625,13 @@ const ICPLC = () => {
             Hear from past participants about their ICPLC experience
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {testimonials.map((testimonial, index) => (
-              <FlipCard
+              <TestimonyCard
                 key={index}
-                front={testimonial.front}
-                back={testimonial.back}
+                name={testimonial.name}
+                image={testimonial.image}
+                testimony={testimonial.testimony}
                 delay={index * 0.1}
               />
             ))}
@@ -554,7 +642,7 @@ const ICPLC = () => {
           className="p-6 bg-[#01257D] rounded-lg border border-[#00FFFF] text-center"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
         >
           <h2 className="text-2xl font-bold text-[#00FFFF] mb-4">
             Sponsor a Student for ICPLC 2025
@@ -564,52 +652,68 @@ const ICPLC = () => {
             this live transforming conference with Pastor Chris but have some
             constraints. Your sponsorship of at least $55 will cover for the
             registration, material, accommodation, meals and transportation of
-            at least one student.
+            at least one student.
           </p>
 
           <div className="grid md:grid-cols-3 gap-4 mb-6">
             <div className="p-4 bg-white/5 rounded-lg">
               <div className="text-3xl font-bold text-[#00FFFF]">1</div>
-              <div className="text-white text-sm"> 1 delegate </div>
+              <div className="text-white text-sm"> delegate</div>
               <div className="text-[#00FFFF] font-bold">$55</div>
             </div>
 
             <div className="p-4 bg-white/5 rounded-lg">
               <div className="text-3xl font-bold text-[#00FFFF]">5</div>
-              <div className="text-white text-sm">5 delegates</div>
+              <div className="text-white text-sm"> delegates</div>
               <div className="text-[#00FFFF] font-bold">$275</div>
             </div>
 
             <div className="p-4 bg-white/5 rounded-lg">
               <div className="text-3xl font-bold text-[#00FFFF]">10</div>
-              <div className="text-white text-sm">20 delegates</div>
-              <div className="text-[#00FFFF] font-bold">$1,1000</div>
+              <div className="text-white text-sm">delegates</div>
+              <div className="text-[#00FFFF] font-bold">$550</div>
             </div>
           </div>
 
-          <button className="bg-[#00FFFF] text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-white transition-colors">
-            Sponsor a delegate now
-          </button>
+          <a href="#partnership">
+            <button className="bg-[#00FFFF] text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-white transition-colors">
+              Sponsor a delegate now
+            </button>
+          </a>
         </motion.div>
       </div>
 
       <style jsx>{`
-        .flip-card-inner {
-          transition: transform 0.6s;
-          transform-style: preserve-3d;
+        .glitter-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 10;
         }
 
-        .flip-card:hover .flip-card-inner {
-          transform: rotateY(180deg);
+        .glitter-particle {
+          position: absolute;
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 50%;
+          animation: glitter 1s ease-out forwards;
         }
 
-        .backface-hidden {
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-        }
-
-        .rotate-y-180 {
-          transform: rotateY(180deg);
+        @keyframes glitter {
+          0% {
+            transform: translate(0, 0) scale(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translate(
+                ${Math.random() * 100 - 50}px,
+                ${Math.random() * 100 - 50}px
+              )
+              scale(1);
+            opacity: 0;
+          }
         }
       `}</style>
     </div>
