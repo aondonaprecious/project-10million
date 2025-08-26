@@ -22,24 +22,23 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center bg-[#01257D] overflow-hidden">
       {/* Deep navy overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#01257D]/90 to-[#001845] z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#01257D]/90 to-[#001845] z-10"></div>
 
       {/* Background image slider */}
-      <div className="absolute inset-0 z-[-1]">
-        {images.map((Images, index) => (
+      <div className="absolute inset-0 z-0">
+        {images.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 bg-center bg-cover transition-opacity duration-1000 ${
+            className={`absolute inset-0 transition-opacity duration-1000 ${
               index === currentImage ? "opacity-100" : "opacity-0"
             }`}
-            style={{
-              backgroundImage: `url(${Images})`,
-            }}
-          />
+          >
+            <img src={image} alt="" className="w-full h-full object-cover" />
+          </div>
         ))}
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 py-20 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 py-20 relative z-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Side: Text Content */}
           <motion.div
