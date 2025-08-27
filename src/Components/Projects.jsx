@@ -370,6 +370,7 @@ const OfficeRenovation = () => {
     const [formData, setFormData] = useState({
       name: "",
       location: "",
+      email: "",
       contact: "",
       equipment: "",
     });
@@ -401,6 +402,7 @@ Equipment to donate: ${formData.equipment}
       setFormData({
         name: "",
         location: "",
+        email: "",
         contact: "",
         equipment: "",
       });
@@ -503,6 +505,9 @@ Equipment to donate: ${formData.equipment}
             </div>
 
             <button
+              action="https://public.herotofu.com/v1/87fdd140-66ca-11ef-b675-51969bcd4265"
+              method="post"
+              accept-charset="UTF-8"
               type="submit"
               className="w-full bg-[#00FFFF] text-[#01257D] py-2 rounded font-bold text-sm hover:bg-white transition-colors"
             >

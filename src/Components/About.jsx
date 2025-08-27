@@ -160,7 +160,7 @@ const About = () => {
               <h3 className="text-2xl font-bold mb-4 text-[#01257D]">
                 Sunday Service
               </h3>
-              <p className="text-xl text-[#01257D]">8:00 AM - 11:00 AM</p>
+              <p className="text-xl text-[#01257D]">8:00 AM - 10:00 AM</p>
               <p className="mt-2 text-[#01257D]">Multipurpose Hall</p>
             </div>
 
