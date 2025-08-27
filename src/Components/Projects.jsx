@@ -1,20 +1,21 @@
 /** @format */
 import { motion } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import firevidoe from "../assets/Fire vidoe.mp4";
 
 // Import local images
 import flyer1 from "../assets/icplc 2.jpg";
 import flyer2 from "../assets/icplc banner.jpg";
-import flyer3 from "../assets/icplc 2.jpg";
+import flyer3 from "../assets/icplcpart.jpg";
 import agatha from "../assets/agatha 2.jpg";
 import marvelous from "../assets/agatha.jpg";
 import joy from "../assets/joy.jpg";
-import agathaa from '../assets/37a24f6a-e6c1-48c0-a963-ca4af504b927.jpg'
-import precious from "../assets/Loving Heart of LoveWorld Arena.png";
+import agathaa from "../assets/37a24f6a-e6c1-48c0-a963-ca4af504b927.jpg";
+import precious from "../assets/ebbf7957-97da-47c1-b7b0-07b0276a4179.png";
+import marv from '../assets/AONDONA PRECIOUS PIX.png';
 import buildingFront from "../assets/Loving Heart of LoveWorld Arena.png";
-import buildingInterior from "../assets/Loving Heart of LoveWorld Arena.png";
+import buildingInterior from "../assets/jostum inner.jpg";
 
 // Main Projects component with routing
 const Projects = () => {
@@ -141,7 +142,7 @@ const VideoPlayer = () => {
   };
 
   return (
-    <div className="relative aspect-video bg-black/30 border border-[#00FFFF] rounded-lg overflow-hidden">
+    <div className="relative mx-auto w-full max-w-md aspect-video bg-black/30 border border-[#00FFFF] rounded-lg overflow-hidden">
       <video
         ref={videoRef}
         className="w-full h-full object-cover"
@@ -256,7 +257,7 @@ const ChurchBuilding = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               We have identified a perfect land for our new church building - a
-              centrally located 2-acre property that can accommodate our current
+              centrally located 2-plot property that can accommodate our current
               congregation and future growth. The proposed building will include
               a 500-seat sanctuary, classrooms for Sunday school, fellowship
               hall, and administrative offices.
@@ -324,8 +325,195 @@ const ChurchBuilding = () => {
   );
 };
 
-// Office Renovation Component
+// Toast Notification Component
+const Toast = ({ message, show, onClose }) => {
+  useEffect(() => {
+    if (show) {
+      const timer = setTimeout(() => {
+        onClose();
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [show, onClose]);
+
+  if (!show) return null;
+
+  return (
+    <motion.div
+      className="fixed top-4 right-4 bg-[#00FFFF] text-[#01257D] px-6 py-3 rounded-lg shadow-lg z-50 max-w-xs"
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+    >
+      <div className="flex items-center">
+        <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fillRule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clipRule="evenodd"
+          />
+        </svg>
+        <span className="text-sm font-medium">{message}</span>
+      </div>
+    </motion.div>
+  );
+};
+
+// Office Renovation Component with Equipment Donation Form
 const OfficeRenovation = () => {
+  const [showDonationForm, setShowDonationForm] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
+  // Equipment Donation Form Component
+  const EquipmentDonationForm = () => {
+    const [formData, setFormData] = useState({
+      name: "",
+      location: "",
+      contact: "",
+      equipment: "",
+    });
+
+    const handleChange = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+    };
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      // Send email using mailto link
+      const subject = "Equipment Donation Offer";
+      const body = `
+Name: ${formData.name}
+Country/Location: ${formData.location}
+Contact: ${formData.contact}
+Equipment to donate: ${formData.equipment}
+      `;
+
+      window.location.href = `mailto:Blwuamsouthcore1@gmail.com?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+
+      // Reset form
+      setFormData({
+        name: "",
+        location: "",
+        contact: "",
+        equipment: "",
+      });
+
+      // Close the form
+      setShowDonationForm(false);
+
+      // Show custom toast message
+      setToastMessage(
+        "Thank you for your donation offer! An email has been prepared for you to send."
+      );
+      setShowToast(true);
+    };
+
+    return (
+      <motion.div
+        className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={() => setShowDonationForm(false)}
+      >
+        <motion.div
+          className="bg-gradient-to-b from-[#01257D] to-[#023190] rounded-xl border border-[#00FFFF] p-4 w-full max-w-xs mx-auto"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-bold text-[#00FFFF]">
+              Donate Equipment
+            </h3>
+            <button
+              onClick={() => setShowDonationForm(false)}
+              className="text-white hover:text-[#00FFFF] text-xl"
+              aria-label="Close form"
+            >
+              &times;
+            </button>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <div>
+              <label className="block text-white text-sm mb-1">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full bg-white/10 border border-[#00FFFF] rounded px-3 py-2 text-white text-sm focus:outline-none focus:ring-1 focus:ring-[#00FFFF]"
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div>
+              <label className="block text-white text-sm mb-1">
+                Country/Location
+              </label>
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+                className="w-full bg-white/10 border border-[#00FFFF] rounded px-3 py-2 text-white text-sm focus:outline-none focus:ring-1 focus:ring-[#00FFFF]"
+                placeholder="Enter your country or location"
+              />
+            </div>
+
+            <div>
+              <label className="block text-white text-sm mb-1">
+                Personal Contact
+              </label>
+              <input
+                type="text"
+                name="contact"
+                value={formData.contact}
+                onChange={handleChange}
+                required
+                className="w-full bg-white/10 border border-[#00FFFF] rounded px-3 py-2 text-white text-sm focus:outline-none focus:ring-1 focus:ring-[#00FFFF]"
+                placeholder="Phone number or email"
+              />
+            </div>
+
+            <div>
+              <label className="block text-white text-sm mb-1">
+                Equipment to donate
+              </label>
+              <textarea
+                name="equipment"
+                value={formData.equipment}
+                onChange={handleChange}
+                required
+                rows={2}
+                className="w-full bg-white/10 border border-[#00FFFF] rounded px-3 py-2 text-white text-sm focus:outline-none focus:ring-1 focus:ring-[#00FFFF]"
+                placeholder="Describe the equipment you'd like to donate"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-[#00FFFF] text-[#01257D] py-2 rounded font-bold text-sm hover:bg-white transition-colors"
+            >
+              Submit Donation Offer
+            </button>
+          </form>
+        </motion.div>
+      </motion.div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#01257D] to-[#023190] py-12 px-4">
       <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-sm rounded-xl border border-[#00FFFF] p-8">
@@ -372,7 +560,9 @@ const OfficeRenovation = () => {
           <h2 className="text-2xl font-bold text-white mb-4">
             Video Documentation
           </h2>
-          <VideoPlayer />
+          <div className="flex justify-center">
+            <VideoPlayer />
+          </div>
           <p className="text-center text-[#00FFFF] mt-2">
             Video footage of fire damage
           </p>
@@ -431,7 +621,10 @@ const OfficeRenovation = () => {
             complete the full preaching of the gospel in this year of
             completeness
           </p>
-          <button className="bg-[#00FFFF] text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-white transition-colors mr-4">
+          <button
+            onClick={() => setShowDonationForm(true)}
+            className="bg-[#00FFFF] text-[#01257D] py-3 px-8 rounded-lg font-bold hover:bg-white transition-colors mr-4 mb-4 md:mb-0"
+          >
             Donate Equipment
           </button>
           <a href="#partnership">
@@ -441,6 +634,16 @@ const OfficeRenovation = () => {
           </a>
         </motion.div>
       </div>
+
+      {/* Render the donation form modal */}
+      {showDonationForm && <EquipmentDonationForm />}
+
+      {/* Render the toast notification */}
+      <Toast
+        message={toastMessage}
+        show={showToast}
+        onClose={() => setShowToast(false)}
+      />
     </div>
   );
 };
@@ -510,25 +713,32 @@ const ICPLC = () => {
       name: "Sister Joy Atile",
       image: joy,
       testimony:
-        "ICPLC transformed my understanding of cross-cultural ministry. The hands-on workshops were invaluable.",
+        "My expectations for ICPLC are to gain a deeper revelation of God's word and learn how to apply it to effect change in our world today, while receiving grace for multiplication in cell ministry, church growth, and partnership. I also anticipate experiencing a notable all-round transformation in my spiritual growth, finances, and business, with a specific word for my finances. Additionally, I seek grace and direction to raise an effective army for Christ.",
     },
     {
       name: "Sister Agatha Adima",
       image: agathaa,
       testimony:
-        "The relationships I built at ICPLC have become my support network in ministry. Forever grateful!",
+        "I expect ICPLC to deepen my understanding of God's word for impactful change and empower me with grace for exponential growth in ministry, partnerships, and personal finances. Additionally, I seek divine direction and strength to build a powerful, Christ-centered community while experiencing transformation in my spiritual and professional life.",
     },
     {
       name: "Brother Marvelous",
       image: precious,
       testimony:
-        "The practical skills I gained at ICPLC helped me launch a thriving church in my community.",
+        "To increase in my capacity and have a shift in my thinking from major encounters that will cause mighty results back at my home church and my life as a whole.",
     },
     {
       name: "Sister Agatha Ortyom",
       image: agatha,
       testimony:
         "Attending the ICPLC, I expect to return refreshed and reenergized, with a renewed mind ready for kingdom exploits. I anticipate receiving increased grace for expansion in cell ministry and the ability to profoundly impact others' lives. Furthermore, I look forward to gaining end-time territorial domination counsel from our dear man of God and receiving a life-changing word that will transform my finances forever.",
+    },
+
+    {
+      name: "Sister Aondona Precious",
+      image: marv,
+      testimony:
+        "Looking forward to ICPLC with so many expecations, grace to actively partcipate in the full complete preaching of the gospel this year, Especially through the 3P's of the Gospel: Preaching, Paying, and Praying for the Gospel. That all &~much Grace will abound towards me, no excuses or complains empowered for the last work God has on earth. I just want to be his vessel who does his heart burdens dilligently",
     },
   ];
 
@@ -619,10 +829,10 @@ const ICPLC = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           <h3 className="text-xl font-bold text-white mb-4 text-center">
-            Student Testimonials
+            Student Expectations
           </h3>
           <p className="text-[#00FFFF] text-center mb-6">
-            Hear from past participants about their ICPLC experience
+            Students Loud Heart Desires for ICPLC
           </p>
 
           <div className="grid grid-cols-1 gap-6">

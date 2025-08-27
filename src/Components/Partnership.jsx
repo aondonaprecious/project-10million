@@ -1,97 +1,62 @@
 /** @format */
 
-// src/components/PartnershipSection.jsx
-import { motion } from "framer-motion";
+import React from "react";
 
 const Partnership = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <motion.div
-          className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-[#01257D]"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+    <section className="py-8 md:py-12 lg:py-16 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-6xl">
+        <div className="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12 border border-[#01257D]">
           <div className="text-center">
             {/* Section Heading */}
-            <motion.h2
-              className="text-3xl md:text-4xl font-bold text-[#01257D] mb-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#01257D] mb-4 md:mb-6">
               Become A Partner With Us
-            </motion.h2>
+            </h2>
 
             {/* Accent line */}
-            <motion.div
-              className="w-32 h-1 bg-[#00FFFF] mx-auto mb-8 rounded-full"
-              initial={{ width: 0 }}
-              whileInView={{ width: 128 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            />
+            <div className="w-24 sm:w-32 h-1 bg-[#00FFFF] mx-auto mb-6 md:mb-8 rounded-full"></div>
 
             {/* Partnership Description */}
-            <motion.p
-              className="text-lg md:text-xl text-[#666666] mb-8 max-w-3xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-            >
+            <p className="text-base sm:text-lg md:text-xl text-[#666666] mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed">
               Join us in our mission to build God a house, renovate our
-              facilities, and sponsor students for the ICPLC with Pastor Chris at Loveworld City ASEESE, Lagos state program.
-              Your partnership makes a lasting impact.
-            </motion.p>
+              facilities, and sponsor students for the ICPLC with Pastor Chris
+              at Loveworld City ASEESE, Lagos state. Your partnership makes a
+              lasting impact.
+            </p>
 
             {/* Account Details */}
-            <motion.div
-              className="mt-8 bg-[#01257D] rounded-lg p-6 text-white max-w-xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
-            >
-              <h3 className="text-xl font-bold mb-4">
+            <div className="mt-6 md:mt-8 bg-[#01257D] rounded-lg md:rounded-xl p-4 sm:p-5 md:p-6 text-white max-w-xl mx-auto">
+              <h3 className="text-lg sm:text-xl font-bold mb-3 md:mb-4">
                 Partnership Account Details
               </h3>
-              <div className="text-left space-y-2">
-                <p className="flex justify-between">
+              <div className="text-left space-y-2 sm:space-y-3 text-sm sm:text-base">
+                <div className="flex flex-col xs:flex-row xs:justify-between">
                   <span className="font-medium">Bank Name:</span>
-                  <span>Your Bank Name</span>
-                </p>
-                <p className="flex justify-between">
+                  <span className="mt-1 xs:mt-0">OPAY Microfinance Bank</span>
+                </div>
+                <div className="flex flex-col xs:flex-row xs:justify-between">
                   <span className="font-medium">Account Name:</span>
-                  <span>BELIEVERS LOVEWORLD JOSTUM</span>
-                </p>
-                <p className="flex justify-between">
+                  <span className="mt-1 xs:mt-0 ">
+                    BELIEVERS LOVEWORLD JOSTUM (Roseline Nwafor)
+                  </span>
+                </div>
+                <div className="flex flex-col xs:flex-row xs:justify-between">
                   <span className="font-medium">Account Number:</span>
-                  <span className="text-[#00FFFF] font-bold">0123456789</span>
-                </p>
+                  <span className="text-[#00FFFF] font-bold mt-1 xs:mt-0">
+                    8148599366
+                  </span>
+                </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Call to Action */}
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1 }}
-            >
-              <p className="text-lg text-[#666666] mb-4">
+            <div className="mt-6 md:mt-8">
+              <p className="text-base md:text-lg text-[#666666] mb-4">
                 Thank you for partnering with us to advance God's kingdom.
               </p>
-              <button className="bg-[#01257D] hover:bg-[#001a5c] text-white font-bold py-3 px-8 rounded-full transition duration-300">
-                Confirm Your Partnership
-              </button>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -12,7 +12,7 @@ const Navigation = () => {
     { name: "Home", id: "home" },
     { name: "About", id: "about" },
     { name: "Projects", id: "projects" },
-    { name: "Contacts", id: "contacts" },
+    { name: "Features", id: "contacts" },
   ];
 
   const scrollToSection = (id) => {
@@ -51,7 +51,7 @@ const Navigation = () => {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-[#0a2a66] hover:text-[#FFD700] font-medium"
+                className="text-[#0a2a66] hover:text-[#FFD700] hover:border-b-2 font-medium"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: i * 0.1 }}

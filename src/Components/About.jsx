@@ -1,8 +1,8 @@
 /** @format */
 import React from "react";
 import { motion } from "framer-motion";
-import pastorimg from '../assets/IMG-20250729-WA0148.jpg'
-import jostumpix from '../assets/jostumpicture.jpg'
+import pastorimg from "../assets/pastor jerry.png";
+import jostumpix from "../assets/jostum main.jpg";
 
 const About = () => {
   return (
@@ -49,7 +49,7 @@ const About = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#01257D] mb-4">
-              Believers Loveworld JOSTUM
+              Believers Loveworld JOSTUM
             </h2>
 
             <div className="w-20 h-1 bg-[#D4AF37] mb-6 rounded-full" />
@@ -122,23 +122,23 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Pastor Image */}
+          {/* Pastor Image - Responsive Adjustments */}
           <motion.div
             className="order-1 md:order-2 flex justify-center"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
           >
-            <div className="relative">
-              <div className="w-80 h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+            <div className="relative w-[70%] md:w-80 mx-auto">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                 <img
                   src={pastorimg}
                   alt="Highly Esteemed Pastor Jeremiah Ocheme"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-[#D4AF37] to-[#FFDF7B] w-24 h-24 rounded-full flex items-center justify-center">
-                <span className="text-white text-4xl">”</span>
+              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-[#D4AF37] to-[#FFDF7B] w-16 h-16 md:w-24 md:h-24 rounded-full flex items-center justify-center">
+                <span className="text-white text-2xl md:text-4xl">”</span>
               </div>
             </div>
           </motion.div>
