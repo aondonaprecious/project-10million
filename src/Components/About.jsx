@@ -106,7 +106,7 @@ const About = () => {
               gospel with a passion for raising young leaders and impacting
               campuses with the message of God's love. With over a decade of
               ministry experience, he has been instrumental in the growth and
-              development of JOSTUM Believers Loveworld. Also is known for his
+              development of Believers Loveworld JOSTUM. He is also known for his
               practical approach to Scripture and his ability to connect with
               students at their point of need.
             </p>
