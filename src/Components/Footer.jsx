@@ -1,5 +1,4 @@
 /** @format */
-
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -17,16 +16,16 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 text-center md:text-left">
           {/* Project Info */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="text-xl font-bold mb-3 text-[#01257D]">
               Project 20 Million
             </h3>
-            <p className="mb-3 text-sm">
+            <p className="mb-3 text-sm max-w-xs">
               Covering church building, office renovation & ICPLC logistics
             </p>
-            <p className="italic text-[#01257D]/80 text-sm">
+            <p className="italic text-[#01257D]/80 text-sm max-w-xs">
               "For by thee I have run through a troop; and by my God have I
               leaped over a wall."
             </p>
@@ -36,7 +35,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="text-lg font-bold mb-3 text-[#01257D]">
               Quick Links
             </h4>
@@ -55,7 +54,7 @@ const Footer = () => {
           </div>
 
           {/* Organization */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="text-lg font-bold mb-3 text-[#01257D]">
               Organization
             </h4>
@@ -67,11 +66,11 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="text-lg font-bold mb-3 text-[#01257D]">
               Contact Us
             </h4>
-            <p className="mb-2 text-sm">
+            <p className="mb-2 text-sm max-w-xs">
               Multipurpose hall, South core. Benue state, Nigeria.
             </p>
             <div className="mb-2 text-sm">
@@ -80,11 +79,11 @@ const Footer = () => {
               <p>(+234) 808 240 2564</p>
               <p>(+234) 911 658 5608</p>
             </div>
-            <p className="mb-2 text-[18px]">
-              Email:
+            <p className="mb-2 text-sm md:text-[18px]">
+              Email: {" "}
               <a
                 href="mailto:Blwuamsouthcore1@gmail.com"
-                className="text-[#00C6FF] hover:underline"
+                className="text-[#00C6FF] text-[15px] hover:underline ml-1"
               >
                 Blwuamsouthcore1@gmail.com
               </a>
