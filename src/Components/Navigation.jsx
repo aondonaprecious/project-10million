@@ -1,12 +1,22 @@
 /** @format */
 
 // src/components/Header.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/blw_logo.png";
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const navItems = [
     { name: "Home", id: "home" },
@@ -18,9 +28,18 @@ const Navigation = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Close mobile menu if open
+      if (isMobile) {
+        setMobileMenuOpen(false);
+
+        // Wait for menu to close before scrolling
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300);
+      } else {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
-    setMobileMenuOpen(false);
   };
 
   return (
@@ -87,6 +106,7 @@ const Navigation = () => {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden bg-white"
             >
               <div className="flex flex-col space-y-4 py-4">
