@@ -40,13 +40,18 @@ const Footer = () => {
               Quick Links
             </h4>
             <ul className="space-y-1">
-              {["Home", "About", "Donate", "Contact"].map((item, i) => (
+              {[
+                { name: "Home", id: "home" },
+                { name: "About", id: "about" },
+                { name: "Partner", id: "partner" },
+                { name: "Projects", id: "projects" },
+              ].map((item, i) => (
                 <li key={i}>
                   <a
-                    href="#"
+                    href={`#${item.id}`}
                     className="hover:text-[#00C6FF] transition-colors text-sm block py-1"
                   >
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -80,7 +85,7 @@ const Footer = () => {
               <p>(+234) 911 658 5608</p>
             </div>
             <p className="mb-2 text-sm md:text-[18px]">
-              Email: {" "}
+              Email:{" "}
               <a
                 href="mailto:Blwuamsouthcore1@gmail.com"
                 className="text-[#00C6FF] text-[15px] hover:underline ml-1"

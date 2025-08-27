@@ -61,7 +61,7 @@ const Loader = () => {
           animate={{ y: 0 }}
           transition={{ delay: 0.7, type: "spring" }}
         >
-          Project 10 Million
+          Project 20 Million
         </motion.h1>
 
         <motion.p

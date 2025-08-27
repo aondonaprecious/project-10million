@@ -713,7 +713,7 @@ const ICPLC = () => {
       name: "Sister Joy Atile",
       image: joy,
       testimony:
-        "My expectations for ICPLC are to gain a deeper revelation of God's word and learn how to apply it to effect change in our world today, while receiving grace for multiplication in cell ministry, church growth, and partnership. I also anticipate experiencing a notable all-round transformation in my spiritual growth, finances, and business, with a specific word for my finances. Additionally, I seek grace and direction to raise an effective army for Christ.",
+        "My expectations for ICPLC is to gain a deeper revelation of God's word and learn how to apply it to effect change in my world, while receiving grace for multiplication in cell ministry, church growth, and partnership. I also anticipate experiencing a notable all-round transformation in my spiritual growth, finances, and business, with a specific word for my finances. Additionally, I seek grace and direction to raise an effective army for Christ.",
     },
     {
       name: "Sister Agatha Adima",
@@ -769,7 +769,7 @@ const ICPLC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          International Campus Pastors' and Leaders' Conference
+          International Campus Pastors and Leaders Conference
         </motion.h2>
 
         <motion.div
@@ -780,11 +780,11 @@ const ICPLC = () => {
         >
           <h3 className="text-xl font-bold text-white mb-4">What is ICPLC?</h3>
           <p className="text-[#00FFFF]">
-            ICPLC (International Campus Pastors' and Leaders' Conference) is a
+            ICPLC (International Campus Pastors and Leaders Conference) is a
             global gathering of passionate, purpose-driven youth leaders,
             student ministers, and campus fellowship pastors in the Believers'
-            Loveworld Nation. with Pastor Chris Oyakhilome at ASEESE believers
-            Loveworld
+            Loveworld Nation with Pastor Chris Oyakhilome at ASEESE Believers
+            Loveworld city.
           </p>
         </motion.div>
 
@@ -861,7 +861,7 @@ const ICPLC = () => {
             Many young students from our campus desire so greatly to be part of
             this live transforming conference with Pastor Chris but have some
             constraints. Your sponsorship of at least $55 will cover for the
-            registration, material, accommodation, meals and transportation of
+            registration, materials, accommodation, meals and transportation of
             at least one student.
           </p>
 

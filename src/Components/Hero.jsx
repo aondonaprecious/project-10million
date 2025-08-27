@@ -68,8 +68,8 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              Project - 20 Million we are building God a house, spreading the
-              gospel on our campus. one block per time.
+              Project 20 Million- we are building God a house, spreading the
+              gospel on our campus. One block per time.
             </motion.p>
 
             <motion.div
