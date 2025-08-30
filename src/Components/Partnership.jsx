@@ -31,7 +31,7 @@ const Partnership = () => {
       `Thank you ${formData.name}! Your partnership has been confirmed. We'll be in touch soon.`,
       {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

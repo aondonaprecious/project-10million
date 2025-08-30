@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import firevidoe from "../assets/Fire vidoe.mp4";
+import firevidoe from "../assets/firevidoes2.mp4";
 
 // Import local images
 import flyer1 from "../assets/icplc 2.jpg";
@@ -331,7 +331,7 @@ const Toast = ({ message, show, onClose }) => {
     if (show) {
       const timer = setTimeout(() => {
         onClose();
-      }, 3000);
+      }, 6000);
       return () => clearTimeout(timer);
     }
   }, [show, onClose]);
