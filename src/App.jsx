@@ -13,7 +13,8 @@ import "./App.css";
 import Gallery from "./Components/Gallery";
 import Projects from "./Components/Projects";
 import Partnership from "./Components/Partnership";
-
+// import { useLocation } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -29,6 +30,15 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+
+  // function TrackPageViews() {
+  //   const location = useLocation();
+  //   useEffect(() => {
+  //     analytics.page(); // Manually trigger page view on route change
+  //   }, [location.pathname]);
+  //   return null;
+  // }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#ffd1e3] to-white">
       <AnimatePresence>{loading && <Loader />}</AnimatePresence>
@@ -39,7 +49,8 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          
+          {/* <TrackPageViews /> */}
+          <Analytics debug={true} />
           <Header />
           <div id="home">
             <Hero />

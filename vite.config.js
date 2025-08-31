@@ -9,4 +9,4 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Vercel expects this
   },
-});gi
+});
