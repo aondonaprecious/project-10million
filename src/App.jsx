@@ -13,7 +13,7 @@ import "./App.css";
 import Gallery from "./Components/Gallery";
 import Projects from "./Components/Projects";
 import Partnership from "./Components/Partnership";
-import { Analytics } from "@vercel/analytics/react";
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -39,7 +39,7 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-<Analytics />
+          
           <Header />
           <div id="home">
             <Hero />
