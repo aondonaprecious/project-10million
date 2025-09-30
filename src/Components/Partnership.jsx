@@ -80,18 +80,18 @@ const Partnership = () => {
                 <div className="text-left space-y-2 sm:space-y-3 text-sm sm:text-base">
                   <div className="flex flex-col xs:flex-row xs:justify-between">
                     <span className="font-medium">Bank Name:</span>
-                    <span className="mt-1 xs:mt-0">OPAY Microfinance Bank</span>
+                    <span className="mt-1 xs:mt-0">GUARANTY TRUST BANK</span>
                   </div>
                   <div className="flex flex-col xs:flex-row xs:justify-between">
                     <span className="font-medium">Account Name:</span>
                     <span className="mt-1 xs:mt-0 ">
-                      BELIEVERS LOVEWORLD JOSTUM (Roseline Nwafor)
+                      BELIEVER'S LOVEWORLD JOSTUM INNOVATIONS
                     </span>
                   </div>
                   <div className="flex flex-col xs:flex-row xs:justify-between">
                     <span className="font-medium">Account Number:</span>
                     <span className="text-[#00FFFF] font-bold mt-1 xs:mt-0">
-                      8148599366
+                      3002327565
                     </span>
                   </div>
                 </div>
